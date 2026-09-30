@@ -9,6 +9,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## A
 
 ### Activation Checkpointing
+
 - **Category:** Math & training
 - **What it actually means:** A training-memory technique that saves only selected forward-pass activations and recomputes the omitted ones during backpropagation.
 - **Why it matters:** It lets you train larger models or sequences within a fixed memory budget by trading additional computation for lower activation storage.
@@ -18,6 +19,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Training Deep Nets with Sublinear Memory Cost](https://arxiv.org/abs/1604.06174)
 
 ### Activation Function
+
 - **Category:** Math & training
 - **What people say:** The nonlinear operation between layers.
 - **What it actually means:** A function applied after a linear or affine layer that introduces nonlinearity. Without it, composing layers with weights and biases collapses to one affine transformation. ReLU, GELU, and SiLU are common choices. The choice directly affects whether gradients flow during training.
@@ -25,6 +27,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** ReLU, Gradient, Backpropagation
 
 ### Adam (Optimizer)
+
 - **Category:** Math & training
 - **What people say:** The optimizer you use without thinking about it.
 - **What it actually means:** Adaptive Moment Estimation. It combines an exponential average of gradients with an exponential average of squared gradients, applies bias correction, and adapts the update scale per parameter. It is a useful baseline, but it still needs a suitable learning rate and schedule.
@@ -33,6 +36,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** AdamW, Optimizer, Learning Rate
 
 ### AdamW
+
 - **Category:** Math & training
 - **What people say:** Adam with weight decay fixed.
 - **What it actually means:** An Adam variant that decouples weight decay from the gradient-based parameter update. That makes the shrinkage behavior easier to reason about than adding an L2 penalty inside Adam's adaptively scaled gradient.
@@ -41,6 +45,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Adam (Optimizer), Weight Decay, Optimizer
 
 ### Admission Control
+
 - **Category:** Reliability & operations
 - **What it actually means:** A pre-acceptance gate that decides whether a request may enter a bounded queue or service under the system's current capacity, priority, and policy.
 - **Why it matters:** Rejecting excess work at a controlled boundary protects admitted requests from queue growth, timeout cascades, and resource exhaustion.
@@ -50,6 +55,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Handling Overload](https://sre.google/sre-book/handling-overload/)
 
 ### Agent
+
 - **Category:** Agents & tools
 - **What people say:** An autonomous model that thinks and acts alone.
 - **What it actually means:** A software system that lets a model select actions toward a goal, observe tool or environment results, and continue under an orchestration policy. An agent may use a loop, a state machine, a workflow engine, or human approvals. The model is one component, not the entire system.
@@ -60,6 +66,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Agent Harness, Agent State, Tool Contract, Human-in-the-Loop (HITL)
 
 ### Agent Harness
+
 - **Category:** Agents & tools
 - **What it actually means:** The runtime around a model that assembles context, exposes tools, manages state, enforces limits, records traces, and decides when the agent should continue, retry, ask, or stop.
 - **Why it matters:** Two systems using the same model can perform very differently because their harnesses provide different context, tools, feedback, and safety boundaries.
@@ -69,6 +76,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Agent, Tool Contract, Agent State, Verification Gate, Sandbox
 
 ### Agent Memory
+
 - **Category:** Agents & tools
 - **What it actually means:** Information stored outside the model and selected for use in later agent steps, such as prior decisions, user preferences, task episodes, or verified facts.
 - **Why it matters:** It gives an agent continuity beyond one context window without forcing every past event into every prompt.
@@ -78,6 +86,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Generative Agents](https://arxiv.org/abs/2304.03442)
 
 ### Agent State
+
 - **Category:** Agents & tools
 - **What it actually means:** The explicit data an agent carries across steps, such as the current objective, completed actions, tool results, open questions, budgets, approvals, and artifact references.
 - **Why it matters:** Explicit state makes long tasks resumable, inspectable, and less dependent on the model reconstructing progress from a transcript.
@@ -87,6 +96,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Checkpoint, Durable Execution, Context Engineering, Handoff
 
 ### Agent Skill
+
 - **Category:** Agents & tools
 - **What it actually means:** A discoverable directory of procedural instructions whose entry point is `SKILL.md`, with optional references, scripts, and assets that a compatible runtime can load in stages.
 - **Why it matters:** It packages reusable task knowledge separately from one conversation while keeping deeper context and deterministic helpers available on demand.
@@ -97,6 +107,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Agent Skills specification](https://agentskills.io/specification)
 
 ### AI Risk Assessment
+
 - **Category:** Security & governance
 - **What it actually means:** A documented analysis of how an AI system can affect people, organizations, and environments, including context, hazards, likelihood, impact, controls, residual risk, and monitoring responsibilities.
 - **Why it matters:** Model capability alone does not determine risk. Deployment context, affected groups, human authority, data, and system integrations change both the harms and the controls required.
@@ -106,6 +117,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 
 ### Alignment
+
 - **Category:** Evaluation & safety
 - **What people say:** Making AI safe.
 - **What it actually means:** The effort to make a model or AI system behave in ways that match intended goals, constraints, and human preferences across both expected and adversarial situations.
@@ -113,6 +125,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Guardrails, Evaluation (Eval), Human-in-the-Loop (HITL)
 
 ### Approval Gate
+
 - **Category:** Agents & tools
 - **What it actually means:** A control point that blocks a consequential action until an authorized person or policy grants permission.
 - **Why it matters:** It limits the blast radius of uncertain model decisions while preserving automation for reversible work.
@@ -122,6 +135,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Human-in-the-Loop (HITL), Verification Gate, Least Privilege
 
 ### Approximate Nearest Neighbor (ANN)
+
 - **Category:** Retrieval & generation
 - **What it actually means:** A search method that returns vectors likely to be among the nearest to a query without exhaustively comparing the query with every stored vector.
 - **Why it matters:** Approximation makes large vector indexes practical, but it introduces a measurable tradeoff between search speed, memory, and retrieval recall.
@@ -131,6 +145,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Efficient and Robust Approximate Nearest Neighbor Search Using HNSW](https://dl.acm.org/doi/10.1109/TPAMI.2018.2889473)
 
 ### Attention
+
 - **Category:** Models & inference
 - **What people say:** How a model focuses on important tokens.
 - **What it actually means:** A mechanism that forms contextual representations by comparing query vectors with key vectors, normalizing the resulting scores, and using them to combine value vectors. Masks, position rules, or sparse patterns can restrict which positions participate.
@@ -141,6 +156,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Self-Attention, Transformer, KV Cache
 
 ### Audio Token
+
 - **Category:** Multimodal systems
 - **What it actually means:** A discrete identifier produced by an audio codec or tokenizer for a short segment or feature of an audio signal, sometimes across several codebooks.
 - **Why it matters:** Discrete audio representations let sequence models process, predict, store, or generate sound using token-oriented architectures.
@@ -151,6 +167,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [SoundStream](https://arxiv.org/abs/2107.03312)
 
 ### Audit Log
+
 - **Category:** Security & governance
 - **What it actually means:** A durable, access-controlled record of security- or accountability-relevant events, including who or what acted, what changed, when it happened, and the resulting status.
 - **Why it matters:** Consequential agent actions need evidence that supports investigation, policy review, and responsibility beyond performance debugging.
@@ -160,6 +177,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [NIST SP 800-92](https://csrc.nist.gov/pubs/sp/800/92/final)
 
 ### Autograd
+
 - **Category:** Math & training
 - **What people say:** Automatic gradients.
 - **What it actually means:** A system that records or transforms tensor operations so it can compute derivatives, usually with reverse-mode automatic differentiation. You write the forward computation and the framework derives the gradients needed for backpropagation.
@@ -167,6 +185,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Backpropagation, Gradient, Tensor
 
 ### Automatic Speech Recognition (ASR)
+
 - **Category:** Multimodal systems
 - **What it actually means:** The task and system pipeline that maps a speech signal to a transcription, often with optional token or segment timing and confidence information.
 - **Why it matters:** Speech interfaces depend on more than language modeling. Acoustic variation, segmentation, decoding, vocabulary, and domain conditions all affect the final transcript.
@@ -177,6 +196,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Connectionist Temporal Classification](https://www.cs.toronto.edu/~graves/icml_2006.pdf)
 
 ### Autoregressive
+
 - **Category:** Models & inference
 - **What people say:** The model generates one word at a time.
 - **What it actually means:** A factorization in which each output token is predicted from the tokens that precede it. During generation, the selected token is appended to the sequence and becomes part of the next prediction's context.
@@ -184,6 +204,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Token, Temperature, KV Cache
 
 ### Autoscaling
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** A control loop that changes the number or capacity of serving workers from observed demand, resource use, or application metrics within configured bounds.
 - **Why it matters:** AI workloads can change faster than manual provisioning, but scaling decisions must account for model-load time, accelerator availability, queueing, and request cost.
@@ -194,6 +215,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Kubernetes Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 
 ### Availability
+
 - **Category:** Reliability & operations
 - **What it actually means:** The proportion of eligible service interactions or time windows in which users can obtain the defined acceptable service under a stated measurement boundary.
 - **Why it matters:** A service can be running while users still cannot complete useful requests, so availability must be tied to user-visible success rather than process uptime alone.
@@ -205,6 +227,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## B
 
 ### Backpressure
+
 - **Category:** AI-native development
 - **What it actually means:** A flow-control mechanism that slows or rejects upstream work when a downstream component cannot process it safely at the current rate.
 - **Why it matters:** Without backpressure, queued agent runs, tool calls, or streamed events can exhaust memory, exceed rate limits, and amplify retries.
@@ -213,6 +236,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Rate Limit, Retry with Backoff, Circuit Breaker
 
 ### Backpropagation
+
 - **Category:** Math & training
 - **What people say:** How neural networks learn.
 - **What it actually means:** An efficient application of the chain rule that propagates derivatives from a scalar loss backward through a computation graph. It computes gradients; an optimizer uses those gradients to update parameters.
@@ -222,6 +246,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Autograd, Gradient, Optimizer
 
 ### Batch Size
+
 - **Category:** Math & training
 - **What people say:** How many examples are processed at once.
 - **What it actually means:** The number of examples whose losses contribute to one gradient estimate before an optimizer update. Larger batches can improve hardware utilization and reduce gradient noise, but they require more memory and may need different learning-rate or scheduling choices.
@@ -229,6 +254,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Learning Rate, Gradient, Optimizer
 
 ### Benchmark Contamination
+
 - **Category:** Evaluation & safety
 - **What it actually means:** Overlap or information leakage between evaluation examples and data used to pretrain, tune, prompt, select, or otherwise improve the evaluated system.
 - **Why it matters:** Contamination can make a benchmark score reflect prior exposure rather than the ability to generalize to unseen tasks.
@@ -238,6 +264,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Investigating Data Contamination in Modern Benchmarks for Large Language Models](https://arxiv.org/abs/2311.09783)
 
 ### BM25
+
 - **Category:** Retrieval & generation
 - **What it actually means:** A lexical ranking function that scores a document from query-term matches while accounting for term rarity, repeated occurrences, and document length.
 - **Why it matters:** It is a strong exact-term retrieval baseline and complements dense retrieval for identifiers, rare words, and domain-specific phrases.
@@ -247,6 +274,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [The Probabilistic Relevance Framework: BM25 and Beyond](https://doi.org/10.1561/1500000019)
 
 ### Byte Pair Encoding (BPE)
+
 - **Category:** Data & representations
 - **What it actually means:** A subword-tokenization method that repeatedly merges frequent adjacent units to construct a fixed vocabulary from training text.
 - **Why it matters:** It balances vocabulary size with the ability to represent rare or unseen words as smaller units.
@@ -258,6 +286,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## C
 
 ### Calibration
+
 - **Category:** Evaluation & safety
 - **What it actually means:** The agreement between a system's stated confidence and the observed frequency with which predictions at that confidence are correct.
 - **Why it matters:** A system can be accurate on average yet dangerously overconfident on the cases where people rely on its score.
@@ -267,6 +296,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [On Calibration of Modern Neural Networks](https://proceedings.mlr.press/v70/guo17a.html)
 
 ### Canary Release
+
 - **Category:** Reliability & operations
 - **What it actually means:** A deployment strategy that exposes a new version to a limited slice of traffic or infrastructure before expanding the rollout.
 - **Why it matters:** It limits the impact of defects and gives you production evidence before the new model, prompt, agent, or service reaches everyone.
@@ -276,6 +306,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Kubernetes Deployments: Canary Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#canary-deployment)
 
 ### Chain of Thought (CoT)
+
 - **Category:** Prompting & context
 - **What people say:** Asking the model to show every step of its thinking.
 - **What it actually means:** Intermediate reasoning used to decompose a task before producing an answer. A prompt can request a visible rationale, while some systems use internal reasoning that is not returned to the user.
@@ -286,6 +317,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Prompt Engineering, Verification Gate, Evaluation (Eval)
 
 ### Checkpoint
+
 - **Category:** Agents & tools
 - **What it actually means:** A durable snapshot used to resume from a known boundary. In a workflow, it stores operational state and artifact references. In model training, it can store parameters, optimizer state, scheduler state, and the training position.
 - **Why it matters:** Long-running workflows and training runs can recover from interruption without replaying completed work or losing expensive progress.
@@ -295,6 +327,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Agent State, Durable Execution, Parameter, Optimizer
 
 ### Chunked Prefill
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** A serving technique that divides a long prompt's prefill work into smaller schedulable pieces so prompt processing can interleave with decode work from other requests.
 - **Why it matters:** One long prompt can otherwise occupy the accelerator and delay active generations, producing poor tail latency even when total throughput looks healthy.
@@ -305,6 +338,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Sarathi-Serve](https://arxiv.org/abs/2403.02310)
 
 ### Chunking
+
 - **Category:** Retrieval & generation
 - **What people say:** Splitting documents into pieces.
 - **What it actually means:** Dividing source material into retrievable units before indexing. Chunk boundaries, overlap, metadata, and document structure determine whether retrieval returns enough context without flooding the prompt.
@@ -313,6 +347,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** RAG (Retrieval-Augmented Generation), Reranker, Grounding
 
 ### Circuit Breaker
+
 - **Category:** AI-native development
 - **What it actually means:** A reliability control that temporarily stops calls to a dependency after failures cross a threshold, then probes whether the dependency has recovered.
 - **Why it matters:** It prevents repeated model or tool failures from consuming latency, budget, and capacity across the rest of the system.
@@ -321,6 +356,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Retry with Backoff, Rate Limit, Model Router, Backpressure
 
 ### CNN (Convolutional Neural Network)
+
 - **Category:** Models & inference
 - **What people say:** A neural network for images.
 - **What it actually means:** A neural network that uses convolution operations (sliding filters over the input) to detect local patterns. Stacking convolutions detects increasingly complex features: edges, textures, objects.
@@ -328,6 +364,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Feature, Inductive Bias, Activation Function
 
 ### Coding Agent
+
 - **Category:** AI-native development
 - **What it actually means:** An agent specialized for software work that can inspect a repository, edit files, run development tools, and use their outputs to advance a scoped engineering task.
 - **Why it matters:** Its value depends on repository context, tool permissions, review boundaries, and verification, not only code generation quality.
@@ -337,6 +374,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Agent Harness, Repository Map, Patch, Scope Contract, Reviewer Agent
 
 ### Compensating Action
+
 - **Category:** Agents & tools
 - **What it actually means:** A deliberate operation that semantically counteracts a completed side effect when the original operation cannot be rolled back atomically.
 - **Why it matters:** Multi-step agent workflows cross databases and external services where a later failure cannot undo earlier writes through one transaction.
@@ -346,6 +384,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Sagas](https://dl.acm.org/doi/10.1145/38713.38742)
 
 ### Content Provenance
+
 - **Category:** Security & governance
 - **What it actually means:** Verifiable information about the origin and editing history of a piece of media or other digital content, including the actors, tools, transformations, and assertions attached to it.
 - **Why it matters:** Generative systems make origin claims difficult to infer from appearance alone, so consumers and platforms need inspectable evidence about how content was produced.
@@ -356,6 +395,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [C2PA Technical Specification](https://c2pa.org/specifications/specifications/2.2/specs/C2PA_Specification.html)
 
 ### Context Compression
+
 - **Category:** Prompting & context
 - **What it actually means:** Reducing the token footprint of source material while attempting to preserve the information required for a later model decision.
 - **Why it matters:** Compression can make long tasks fit within budget, but every omitted detail creates a risk that the model loses evidence, constraints, or unresolved state.
@@ -365,6 +405,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [LLMLingua](https://arxiv.org/abs/2310.05736)
 
 ### Context Engineering
+
 - **Category:** Prompting & context
 - **What it actually means:** Designing the full information environment supplied to a model at each step, including instructions, selected files, retrieved evidence, tool results, examples, state, and output constraints.
 - **Why it matters:** Model performance often fails because relevant evidence is missing, stale, badly ordered, or overwhelmed by noise.
@@ -374,6 +415,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Context Window, Progressive Disclosure, Agent State, Repository Map
 
 ### Context Window
+
 - **Category:** Prompting & context
 - **What people say:** How much the model remembers.
 - **What it actually means:** The maximum token capacity available to one model inference under a specific model and API contract. The capacity may include system instructions, messages, retrieved content, tool exchanges, and generated output, with provider-specific accounting and output limits.
@@ -383,6 +425,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Token Budget, Context Engineering, Prompt Cache, Agent State
 
 ### Continuous Batching
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** A serving scheduler that adds and removes generation requests at iteration boundaries instead of waiting for every request in a fixed batch to finish.
 - **Why it matters:** Autoregressive requests produce different output lengths, so continuous batching can keep accelerators utilized without forcing short requests to wait for the longest one.
@@ -392,12 +435,14 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Orca](https://www.usenix.org/conference/osdi22/presentation/yu)
 
 ### Contrastive Learning
+
 - **Category:** Math & training
 - **What people say:** Learning by comparison.
 - **What it actually means:** Training by pulling similar pairs closer and pushing dissimilar pairs apart in embedding space. CLIP uses this: matching image-text pairs vs non-matching ones.
 - **Related terms:** Embedding, Cosine Similarity, Loss Function
 
 ### Cosine Similarity
+
 - **Category:** Data & representations
 - **What people say:** How similar two vectors are.
 - **What it actually means:** The normalized dot product of two vectors. It compares their direction rather than their magnitude and ranges from -1 to 1 for real-valued vectors.
@@ -405,6 +450,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Embedding, Semantic Search, Reranker
 
 ### Cost per Successful Task
+
 - **Category:** AI-native development
 - **What it actually means:** Total system cost divided by the number of tasks that satisfy a defined success criterion, including retries, failed runs, tool use, and evaluation overhead.
 - **Why it matters:** A cheap model call can produce an expensive workflow if it fails often or requires repeated human correction.
@@ -413,6 +459,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Evaluation (Eval), Retry with Backoff, Model Router, Verification Gate
 
 ### Cross-Attention
+
 - **Category:** Multimodal systems
 - **What it actually means:** Attention in which the query representation comes from one sequence or representation while keys and values come from another.
 - **Why it matters:** It gives one stream a learnable way to retrieve information from another, such as language tokens attending to visual features.
@@ -422,6 +469,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 
 ### Cross-Entropy
+
 - **Category:** Math & training
 - **What people say:** The classification loss.
 - **What it actually means:** A loss based on the negative log probability assigned to the target outcome. In next-token training, it penalizes the model when it assigns low probability to the observed next token.
@@ -429,6 +477,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Loss Function, Softmax, Perplexity
 
 ### CUDA
+
 - **Category:** Models & inference
 - **What people say:** GPU programming.
 - **What it actually means:** NVIDIA's platform and programming model for general-purpose computation on compatible GPUs. Deep-learning frameworks use CUDA libraries and kernels to execute many tensor operations in parallel.
@@ -438,6 +487,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## D
 
 ### Data Augmentation
+
 - **Category:** Math & training
 - **What people say:** Making more training data.
 - **What it actually means:** Creating modified examples, such as transformed images, perturbed audio, or paraphrased text, to increase training diversity without collecting entirely new source data. It can reduce overfitting when the transformation preserves the task signal.
@@ -445,6 +495,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Overfitting, Epoch, Eval Set
 
 ### Data Classification
+
 - **Category:** Security & governance
 - **What it actually means:** Assigning data to documented sensitivity or impact classes so handling, access, retention, sharing, and incident rules follow the consequences of disclosure or loss.
 - **Why it matters:** An AI pipeline cannot apply proportionate controls if source documents, prompts, traces, and generated artifacts are treated as equally sensitive.
@@ -454,6 +505,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [NIST SP 1800-39 Initial Public Draft: Data Classification Practices](https://www.nccoe.nist.gov/sites/default/files/2026-02/nist-sp-1800-39-ipd.pdf); [NIST FIPS 199: Federal Information and Information System Categorization](https://csrc.nist.gov/pubs/fips/199/final)
 
 ### Data Deduplication
+
 - **Category:** Data & representations
 - **What it actually means:** Detecting and removing exact and near-duplicate examples within or across datasets.
 - **Why it matters:** Repetition can distort the training distribution, increase memorization, leak test material, and make evaluation appear stronger than it is.
@@ -463,6 +515,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Deduplicating Training Data Makes Language Models Better](https://arxiv.org/abs/2107.06499)
 
 ### Data Exfiltration
+
 - **Category:** Security & governance
 - **What it actually means:** Unauthorized transfer of protected data from a system or trust zone to a person, tool, service, or storage location that is not permitted to receive it.
 - **Why it matters:** An agent can expose secrets through generated text, tool arguments, URLs, logs, or side effects even when the original data store remains intact.
@@ -473,6 +526,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [NIST SP 800-53 Rev. 5: AC-4 Information Flow Enforcement](https://csrc.nist.gov/files/pubs/sp/800/53/r5/upd1/final/docs/sp800-53r5-controls.xlsx)
 
 ### Data Leakage
+
 - **Category:** Data & representations
 - **What it actually means:** Unintended use of information during training or feature construction that would not be available at the real prediction point or belongs to a held-out evaluation boundary.
 - **Why it matters:** Leakage produces optimistic metrics that collapse when the system encounters genuinely unseen inputs.
@@ -482,6 +536,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [scikit-learn: Data leakage](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage)
 
 ### Data Lineage
+
 - **Category:** Security & governance
 - **What it actually means:** A record of how a data artifact was derived across sources, transformations, joins, filters, versions, and downstream uses.
 - **Why it matters:** When a source is corrected, revoked, or found unsafe, lineage identifies which datasets, embeddings, evaluations, and model artifacts may be affected.
@@ -491,6 +546,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [W3C PROV-O](https://www.w3.org/TR/prov-o/)
 
 ### Data Minimization
+
 - **Category:** Security & governance
 - **What it actually means:** For personal data, limiting what is collected, processed, exposed, and retained to what is necessary for a specified purpose. Teams can apply the same discipline to sensitive non-personal data as an engineering control.
 - **Why it matters:** Every unnecessary field placed in a prompt, trace, cache, or tool call increases privacy exposure and the possible impact of misuse or compromise.
@@ -500,6 +556,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [General Data Protection Regulation, Article 5(1)(c)](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
 
 ### Data Provenance
+
 - **Category:** Data & representations
 - **What it actually means:** Traceable information about where data originated, who or what transformed it, which versions were used, and how derived artifacts relate to their sources.
 - **Why it matters:** You need provenance to reproduce results, honor usage constraints, investigate contamination, and remove affected data when a source changes.
@@ -509,6 +566,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [W3C PROV Overview](https://www.w3.org/TR/prov-overview/)
 
 ### Dataset Split
+
 - **Category:** Data & representations
 - **What it actually means:** A documented partition of examples into separate subsets for fitting, development decisions, and final evaluation.
 - **Why it matters:** Separation prevents the evidence used to choose a system from also serving as independent proof that the chosen system generalizes.
@@ -518,6 +576,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Datasheets for Datasets](https://cacm.acm.org/research/datasheets-for-datasets/)
 
 ### Datasheet for Datasets
+
 - **Category:** Security & governance
 - **What it actually means:** Structured documentation of a dataset's motivation, composition, collection process, preprocessing, uses, distribution, maintenance, and known limitations.
 - **Why it matters:** A dataset is not safe or suitable merely because it is available. Downstream builders need evidence about how it was created and where its assumptions break.
@@ -528,6 +587,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Datasheets for Datasets](https://arxiv.org/abs/1803.09010)
 
 ### Deadline Propagation
+
 - **Category:** Reliability & operations
 - **What it actually means:** Passing the remaining end-to-end time budget to downstream calls so each dependency knows how long the original request can still usefully wait.
 - **Why it matters:** Independent timeouts can exceed the user's deadline and leave abandoned work consuming capacity after the result is no longer useful.
@@ -537,6 +597,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [gRPC Deadlines](https://grpc.io/docs/guides/deadlines/)
 
 ### Decode Phase
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** The iterative stage of autoregressive inference that generates new tokens one step at a time after the input prefix has been processed.
 - **Why it matters:** Decode work has different compute, memory, and scheduling behavior from prefill, so one aggregate latency number can hide the actual serving bottleneck.
@@ -547,12 +608,14 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [DistServe](https://arxiv.org/abs/2401.09670)
 
 ### Decoder
+
 - **Category:** Models & inference
 - **What people say:** The output side of a model.
 - **What it actually means:** A component that maps a representation into an output. In an encoder-decoder transformer, the decoder uses masked self-attention and cross-attention to generate outputs. Decoder-only language models instead generate from a single causal stack.
 - **Related terms:** Encoder, Transformer, Autoregressive
 
 ### Decoding Strategy
+
 - **Category:** Models & inference
 - **What it actually means:** The algorithm that converts a model's sequence of next-token scores into selected tokens and a completed output.
 - **Why it matters:** Greedy selection, sampling, truncation, and search can produce different quality, diversity, latency, and repeatability from the same logits.
@@ -562,6 +625,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751)
 
 ### Defense in Depth
+
 - **Category:** Security & governance
 - **What it actually means:** Using independent preventive, detective, and corrective controls at several system boundaries so one failed control does not determine the outcome.
 - **Why it matters:** AI systems combine probabilistic models, untrusted content, tools, and external services, making any single filter or prompt an inadequate security boundary.
@@ -571,6 +635,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [NIST Glossary: Defense in Depth](https://csrc.nist.gov/glossary/term/defense_in_depth)
 
 ### Delegation
+
 - **Category:** Agents & tools
 - **What it actually means:** Assigning a bounded subtask to another person or agent together with the needed context, authority, output contract, and return conditions.
 - **Why it matters:** Explicit delegation enables specialization and parallel work without losing ownership, scope, or the ability to integrate results.
@@ -580,6 +645,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents)
 
 ### Dense Retrieval
+
 - **Category:** Retrieval & generation
 - **What it actually means:** First-stage retrieval that embeds queries and candidates into vector representations and ranks candidates by a similarity function.
 - **Why it matters:** It can retrieve paraphrases and semantic matches that share few exact words, complementing lexical methods such as BM25.
@@ -589,6 +655,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Dense Passage Retrieval](https://aclanthology.org/2020.emnlp-main.550/)
 
 ### Diffusion Model
+
 - **Category:** Models & inference
 - **What people say:** A model that generates images from noise.
 - **What it actually means:** A generative model trained around a progressive noising process and a learned reverse process. Sampling usually begins from noise and applies repeated denoising steps, sometimes in a learned latent space.
@@ -596,6 +663,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Latent Space, VAE (Variational Autoencoder), Inference
 
 ### Disaggregated Serving
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** A serving architecture that runs prefill and decode work in separately provisioned worker pools and transfers the required attention state between them.
 - **Why it matters:** Prefill and decode stress hardware differently, so independent pools can be sized and scheduled for their own bottlenecks instead of competing in one queue.
@@ -606,6 +674,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [DistServe](https://arxiv.org/abs/2401.09670)
 
 ### Distribution Shift
+
 - **Category:** Evaluation & safety
 - **What it actually means:** A difference between the data distribution used to build or evaluate a system and the distribution it encounters after deployment.
 - **Why it matters:** A model can pass held-out tests yet fail when users, tasks, language, tools, or operating conditions change.
@@ -615,6 +684,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [WILDS](https://proceedings.mlr.press/v139/koh21a.html)
 
 ### DPO (Direct Preference Optimization)
+
 - **Category:** Math & training
 - **What people say:** Preference training without a separate reward-model stage.
 - **What it actually means:** A preference-optimization objective that trains a policy directly from preferred and rejected response pairs relative to a reference policy. It avoids running an explicit reward model and reinforcement-learning loop during this stage.
@@ -624,12 +694,14 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** RLHF (Reinforcement Learning from Human Feedback), SFT (Supervised Fine-Tuning), Alignment
 
 ### Dropout
+
 - **Category:** Math & training
 - **What people say:** Randomly turning off activations.
 - **What it actually means:** During training, randomly setting a fraction of activations to zero encourages the network not to rely on one activation path. It is normally disabled for standard inference, although Monte Carlo dropout deliberately keeps it active to estimate uncertainty.
 - **Related terms:** Overfitting, Weight Decay, Activation Function
 
 ### Durable Execution
+
 - **Category:** Agents & tools
 - **What it actually means:** Running a workflow so its state and completed steps survive process crashes, restarts, or long waits without redoing confirmed side effects.
 - **Why it matters:** Agent tasks often span model calls, tools, approvals, and external systems. A transient process should not be the only record of progress.
@@ -638,6 +710,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Checkpoint, Agent State, Idempotency, Approval Gate
 
 ### Dynamic Batching
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** A runtime policy that forms inference batches from queued requests according to compatible shapes, maximum size, priority, and allowed queue delay.
 - **Why it matters:** Grouping requests can improve hardware utilization, but waiting for a batch can make latency worse when traffic is sparse or requests differ sharply.
@@ -650,6 +723,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## E
 
 ### Early Fusion
+
 - **Category:** Multimodal systems
 - **What it actually means:** Combining raw or low-level representations from several modalities before most task-specific modeling occurs.
 - **Why it matters:** Early interaction can expose fine-grained cross-modal relationships, but it also requires compatible representations and careful handling of alignment and missing inputs.
@@ -660,12 +734,14 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Chameleon: Mixed-Modal Early-Fusion Foundation Models](https://arxiv.org/abs/2405.09818); [Multimodal Machine Learning: A Survey and Taxonomy](https://arxiv.org/abs/1705.09406)
 
 ### Eigenvalue
+
 - **Category:** Math & training
 - **What people say:** A matrix property used in PCA.
 - **What it actually means:** A scalar that describes how a linear transformation scales a corresponding nonzero eigenvector without changing its direction. In covariance-matrix PCA, larger eigenvalues correspond to directions with more variance.
 - **Related terms:** Tensor, Feature, Latent Space
 
 ### Embedding
+
 - **Category:** Data & representations
 - **What people say:** A vector that represents meaning.
 - **What it actually means:** A learned mapping from discrete items (words, images, users) to dense vectors in continuous space, where similar items end up close together
@@ -675,6 +751,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Cosine Similarity, Semantic Search, Vector Database
 
 ### Encoder
+
 - **Category:** Models & inference
 - **What people say:** The input side of a model.
 - **What it actually means:** A component that transforms input into a representation. A transformer encoder commonly uses non-causal self-attention, subject to any masks, so each position can incorporate context from across the input.
@@ -682,6 +759,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Decoder, Transformer, Embedding
 
 ### Epoch
+
 - **Category:** Math & training
 - **What people say:** One pass through the training data.
 - **What it actually means:** One traversal of the defined training dataset. In distributed or sampled training, the exact implementation of an epoch depends on the data loader and sampling policy.
@@ -689,6 +767,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Batch Size, Overfitting, Eval Set
 
 ### Error Budget
+
 - **Category:** Reliability & operations
 - **What it actually means:** The amount of unsuccessful service allowed by a service-level objective over its measurement window before the objective is exhausted.
 - **Why it matters:** It gives reliability and product work a shared decision boundary: teams can spend remaining budget on change while slowing risk when user-visible failure consumes it.
@@ -698,6 +777,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE Workbook: Error Budget Policy](https://sre.google/workbook/error-budget-policy/)
 
 ### Eval Set
+
 - **Category:** Evaluation & safety
 - **Aliases:** Evaluation set
 - **What it actually means:** A versioned collection of inputs, expected properties, scoring rules, and metadata used to measure an AI system against a defined capability or risk.
@@ -708,6 +788,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Evaluation (Eval), Regression Test, LLM-as-a-Judge, Verification Gate
 
 ### Evaluation (Eval)
+
 - **Category:** Evaluation & safety
 - **Aliases:** Eval
 - **What it actually means:** A defined process for measuring model or system behavior on representative tasks using explicit success criteria, data, scorers, and review procedures.
@@ -718,6 +799,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Eval Set, LLM-as-a-Judge, Cost per Successful Task, Regression Test
 
 ### Exact Match (EM)
+
 - **Category:** Evaluation & safety
 - **What it actually means:** A metric that counts an output as correct only when its normalized representation exactly equals an accepted reference answer.
 - **Why it matters:** It is deterministic and easy to audit for tasks with one canonical answer, but it exposes no partial credit.
@@ -727,6 +809,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [SQuAD](https://aclanthology.org/D16-1264/)
 
 ### Expert Parallelism
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** Distributing mixture-of-experts subnetworks across devices and routing each token's activations to the devices that host its selected experts.
 - **Why it matters:** Sparse experts increase model capacity without executing every expert for every token, but routing introduces communication, load-balance, and placement constraints.
@@ -739,6 +822,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## F
 
 ### Feature
+
 - **Category:** Data & representations
 - **What people say:** A column in a dataset.
 - **What it actually means:** An individual measurable property of the data. In classical ML, you engineer features by hand. In deep learning, the network learns features automatically from raw data.
@@ -746,6 +830,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Embedding, Latent Space, Inductive Bias
 
 ### Few-Shot
+
 - **Category:** Prompting & context
 - **What people say:** Give the model a few examples in the prompt.
 - **What it actually means:** In-context learning that includes a small set of demonstrations before the target input so the model can infer the desired task, format, or decision boundary.
@@ -753,6 +838,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Zero-Shot, In-Context Learning, Prompt Engineering, Context Window
 
 ### Fine-tuning
+
 - **Category:** Math & training
 - **What people say:** Training a model on your data.
 - **What it actually means:** Continuing training from pretrained parameters on a narrower dataset or objective. Depending on the method, you may update all parameters, selected parameters, or added adapter parameters.
@@ -762,6 +848,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** SFT (Supervised Fine-Tuning), LoRA (Low-Rank Adaptation), QLoRA, RAG (Retrieval-Augmented Generation)
 
 ### Flaky Test
+
 - **Category:** AI-native development
 - **What it actually means:** A test that can pass and fail across equivalent runs without a relevant change to the code or intended test environment.
 - **Why it matters:** Flakiness weakens verification gates and can train people or agents to ignore real failures or retry until they obtain a false pass.
@@ -771,6 +858,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [De-Flake Your Tests](https://conferences.computer.org/icsme/pdfs/ICSME2020-1oOutvkGTwF4GyVvNtr3Mm/561900a736/561900a736.pdf)
 
 ### FlashAttention
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** An exact attention algorithm that tiles the computation to reduce transfers between accelerator memory levels while avoiding materialization of the full attention matrix in high-bandwidth memory.
 - **Why it matters:** Attention can be limited by memory movement rather than arithmetic, especially for long sequences, so an IO-aware kernel can improve usable speed and memory efficiency.
@@ -781,6 +869,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [FlashAttention](https://arxiv.org/abs/2205.14135)
 
 ### Function Calling
+
 - **Category:** Agents & tools
 - **What people say:** A model using tools.
 - **What it actually means:** A provider or application interface through which a model emits a structured request naming a tool and its arguments. Application code validates the request, performs the operation, and can return the result for another model step.
@@ -791,12 +880,14 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## G
 
 ### GAN (Generative Adversarial Network)
+
 - **Category:** Models & inference
 - **What people say:** Two neural networks competing during training.
 - **What it actually means:** A generator network tries to create realistic data while a discriminator network tries to tell real from fake. They train together: the generator gets better at fooling the discriminator, and the discriminator gets better at detecting fakes.
 - **Related terms:** Loss Function, Latent Space, Diffusion Model
 
 ### Goodput
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** The rate of completed requests that satisfy defined service constraints, such as both time-to-first-token and per-token latency objectives, under a stated workload.
 - **Why it matters:** Raw throughput can rise while users experience more slow requests. Goodput counts only work that meets the service contract.
@@ -807,6 +898,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [DistServe](https://arxiv.org/abs/2401.09670)
 
 ### GPT
+
 - **Category:** Models & inference
 - **What people say:** A generic name for any chatbot.
 - **What it actually means:** Generative Pre-trained Transformer, a family label for generative transformer models pretrained on sequence-prediction objectives and adapted for downstream use. Product names and model architectures should not be treated as interchangeable.
@@ -814,6 +906,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Transformer, Autoregressive, LLM (Large Language Model)
 
 ### Graceful Degradation
+
 - **Category:** Reliability & operations
 - **What it actually means:** Preserving a bounded core service when capacity or dependencies are impaired by reducing optional quality, features, freshness, or workload instead of failing every request.
 - **Why it matters:** AI systems often depend on several slow or fallible components, so an explicit reduced mode can protect essential user outcomes during partial failure.
@@ -824,6 +917,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Addressing Cascading Failures](https://sre.google/sre-book/addressing-cascading-failures/)
 
 ### Gradient
+
 - **Category:** Math & training
 - **What people say:** The slope of the loss.
 - **What it actually means:** A vector of partial derivatives pointing in the direction of steepest increase. In ML, you go opposite to the gradient (gradient descent) to minimize the loss.
@@ -831,6 +925,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Backpropagation, Gradient Descent, Optimizer
 
 ### Gradient Accumulation
+
 - **Category:** Math & training
 - **What it actually means:** Summing or averaging gradients from several microbatches before performing one optimizer update.
 - **Why it matters:** It lets you approximate a larger effective batch when one device cannot hold all examples and activations at once.
@@ -840,6 +935,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [PyTorch AMP examples: Gradient accumulation](https://docs.pytorch.org/docs/stable/notes/amp_examples.html#gradient-accumulation)
 
 ### Gradient Clipping
+
 - **Category:** Math & training
 - **What it actually means:** Limiting gradient values or their combined norm before an optimizer update when they exceed a chosen threshold.
 - **Why it matters:** It can prevent an unusually large gradient from destabilizing a training step and producing non-finite values.
@@ -849,12 +945,14 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [On the difficulty of training recurrent neural networks](https://arxiv.org/abs/1211.5063)
 
 ### Gradient Descent
+
 - **Category:** Math & training
 - **What people say:** Walking downhill on the loss surface.
 - **What it actually means:** A family of optimization updates that move parameters using the negative gradient of an objective, usually estimated from batches rather than the entire dataset.
 - **Related terms:** Gradient, Learning Rate, Optimizer
 
 ### Grounding
+
 - **Category:** Retrieval & generation
 - **What it actually means:** Connecting a generated answer or action to evidence, state, or observations that the system can identify and check.
 - **Why it matters:** Grounding gives the system a basis beyond unconstrained generation and makes unsupported claims easier to detect.
@@ -864,6 +962,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** RAG (Retrieval-Augmented Generation), Hallucination, Verification Gate, Reranker
 
 ### Guardrails
+
 - **Category:** Evaluation & safety
 - **What people say:** Safety filters around a model.
 - **What it actually means:** System controls that constrain inputs, tool use, outputs, permissions, and escalation. They can include schemas, policy checks, classifiers, allowlists, sandboxing, approvals, and post-action verification.
@@ -875,6 +974,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## H
 
 ### Hallucination
+
 - **Category:** Evaluation & safety
 - **What people say:** The model is lying.
 - **What it actually means:** Generated content that is false, unsupported by the available evidence, or inconsistent with the task's source of truth. It can arise even when the output is fluent and the model is not attempting to deceive.
@@ -884,6 +984,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Grounding, RAG (Retrieval-Augmented Generation), Verification Gate
 
 ### Handoff
+
 - **Category:** AI-native development
 - **What it actually means:** A structured transfer of a task between people or agents that preserves the objective, current state, evidence, decisions, constraints, and remaining work.
 - **Why it matters:** A good handoff prevents the next worker from reconstructing the entire task from a long transcript or repeating completed actions.
@@ -893,6 +994,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Agent State, Checkpoint, Scope Contract, Progressive Disclosure
 
 ### HNSW
+
 - **Category:** Retrieval & generation
 - **Aliases:** Hierarchical Navigable Small World
 - **What it actually means:** An approximate-nearest-neighbor index that organizes vectors in layered proximity graphs and searches from coarse upper layers toward detailed lower layers.
@@ -903,6 +1005,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Efficient and Robust Approximate Nearest Neighbor Search Using HNSW](https://dl.acm.org/doi/10.1109/TPAMI.2018.2889473)
 
 ### Human-in-the-Loop (HITL)
+
 - **Category:** Agents & tools
 - **Aliases:** Human oversight, human review
 - **What it actually means:** A workflow design in which a person supplies judgment, correction, approval, or escalation at defined points in an AI-driven process.
@@ -912,6 +1015,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Approval Gate, Verification Gate, Agent, Guardrails
 
 ### Hybrid Retrieval
+
 - **Category:** Retrieval & generation
 - **What it actually means:** Retrieval that combines signals from different methods, commonly lexical matching and dense-vector similarity, before merging or reranking results.
 - **Why it matters:** Exact identifiers, rare terms, and semantic paraphrases behave differently, so one retrieval signal can miss useful evidence.
@@ -921,6 +1025,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Semantic Search, Reranker, RAG (Retrieval-Augmented Generation), Embedding
 
 ### Hyperparameter
+
 - **Category:** Math & training
 - **What people say:** A setting you tune.
 - **What it actually means:** A configuration choice that shapes model structure, optimization, data processing, or inference rather than being learned as an ordinary model parameter. Examples include learning rate, batch size, layer count, and decoding settings.
@@ -930,6 +1035,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## I
 
 ### Idempotency
+
 - **Category:** AI-native development
 - **What it actually means:** The property that repeating the same operation with the same identity does not create additional side effects beyond the first successful application.
 - **Why it matters:** Retries are normal in distributed agent systems. Without idempotency, one uncertain response can duplicate payments, comments, deployments, or records.
@@ -939,6 +1045,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Retry with Backoff, Durable Execution, Checkpoint
 
 ### Image Token
+
 - **Category:** Multimodal systems
 - **What it actually means:** A model-specific visual unit represented as a vector or discrete code, commonly derived from an image patch, region, or learned visual-codebook entry.
 - **Why it matters:** Turning visual input into a sequence lets transformer-style components process images together with text or other tokenized modalities.
@@ -949,6 +1056,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Vision Transformer](https://arxiv.org/abs/2010.11929); [VQ-VAE](https://arxiv.org/abs/1711.00937)
 
 ### In-Context Learning
+
 - **Category:** Prompting & context
 - **What it actually means:** A model adapting its behavior from instructions, examples, or patterns supplied in the current input without an ordinary parameter update.
 - **Why it matters:** It explains how one pretrained model can perform a new task from context while keeping its weights unchanged.
@@ -958,6 +1066,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
 
 ### Incident Response
+
 - **Category:** Reliability & operations
 - **What it actually means:** The coordinated process for detecting, analyzing, containing, recovering from, communicating, and learning from an event that threatens service, data, safety, or security.
 - **Why it matters:** During an incident, clear roles and evidence matter more than improvised heroics, especially when model behavior and distributed dependencies obscure the failing boundary.
@@ -968,6 +1077,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Managing Incidents](https://sre.google/sre-book/managing-incidents/); [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
 
 ### Indirect Prompt Injection
+
 - **Category:** Security & governance
 - **What it actually means:** A prompt-injection attack delivered through content the system retrieves or observes, such as a webpage, document, email, image text, or tool result, rather than directly through the user's instruction.
 - **Why it matters:** An agent can encounter attacker-controlled instructions while performing an authorized task and mistake that content for authority-bearing guidance.
@@ -978,6 +1088,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173)
 
 ### Inductive Bias
+
 - **Category:** Models & inference
 - **What people say:** Assumptions built into a learning system.
 - **What it actually means:** Structural or statistical assumptions that favor some functions or representations over others. Convolution favors locality and shared filters; causal masking favors prediction from preceding positions.
@@ -985,6 +1096,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** CNN (Convolutional Neural Network), Transformer, Feature
 
 ### Inference
+
 - **Category:** Models & inference
 - **What people say:** Running a trained model.
 - **What it actually means:** Executing a trained model to produce predictions, scores, embeddings, or generated tokens without performing an ordinary training update to its parameters.
@@ -992,6 +1104,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Autoregressive, Streaming, KV Cache
 
 ### Instruction Following
+
 - **Category:** Prompting & context
 - **What it actually means:** A model capability to map natural-language directions and supplied context to behavior that satisfies the stated task and constraints.
 - **Why it matters:** Language generation can be fluent without obeying the user's requested operation, format, boundaries, or priorities.
@@ -1001,6 +1114,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Finetuned Language Models Are Zero-Shot Learners](https://arxiv.org/abs/2109.01652)
 
 ### Instruction Hierarchy
+
 - **Category:** Prompting & context
 - **What it actually means:** A rule set for resolving conflicts among instructions from sources with different authority, such as application policy, users, and untrusted retrieved content.
 - **Why it matters:** Agent systems mix trusted goals with external text, so the model and harness need a defined response when lower-authority content conflicts with higher-authority constraints.
@@ -1010,6 +1124,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [The Instruction Hierarchy](https://arxiv.org/abs/2404.13208)
 
 ### Inter-Token Latency (ITL)
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** The elapsed time between two consecutive output-token arrival events for one request, calculated as `t_i - t_(i-1)` for an output token after the first.
 - **Why it matters:** Individual gaps expose decode stalls and streaming jitter that a per-request average can hide, especially under batching, preemption, or mixed workloads.
@@ -1022,6 +1137,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## J
 
 ### Jailbreak
+
 - **Category:** Security & governance
 - **What it actually means:** An adversarial input or interaction strategy intended to make a model produce behavior that its training or application controls are designed to prevent.
 - **Why it matters:** Successful jailbreaks expose gaps between stated policy and actual behavior, and they can become more consequential when the model controls tools or protected data.
@@ -1032,6 +1148,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Universal and Transferable Adversarial Attacks on Aligned Language Models](https://arxiv.org/abs/2307.15043)
 
 ### JAX
+
 - **Category:** Math & training
 - **What people say:** A NumPy-like system for accelerated machine learning.
 - **What it actually means:** A Python library for transforming numerical functions with automatic differentiation, compilation, vectorization, and parallel execution across accelerators. Its transformations work best with explicit state and functional-style code.
@@ -1043,6 +1160,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## K
 
 ### Knowledge Distillation
+
 - **Category:** Math & training
 - **What it actually means:** Training a student model to reproduce selected behavior or output distributions from a more capable teacher, often alongside ordinary target labels.
 - **Why it matters:** It can transfer useful behavior into a smaller or cheaper model when serving the teacher directly is impractical.
@@ -1052,6 +1170,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Distilling the Knowledge in a Neural Network](https://arxiv.org/abs/1503.02531)
 
 ### KV Cache
+
 - **Category:** Models & inference
 - **What people say:** A cache that makes token generation faster.
 - **What it actually means:** Stored key and value tensors from earlier positions in autoregressive generation. Reusing them avoids recomputing attention projections for the unchanged prefix at every decoding step.
@@ -1063,6 +1182,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## L
 
 ### Late Fusion
+
 - **Category:** Multimodal systems
 - **What it actually means:** Processing modalities through separate encoders or predictors and combining their high-level representations, scores, or decisions near the task output.
 - **Why it matters:** Separate branches can use modality-specific architectures and tolerate missing inputs, though they may miss fine-grained interactions available to earlier fusion.
@@ -1073,6 +1193,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Multimodal Deep Learning](https://ai.stanford.edu/~ang/papers/icml11-MultimodalDeepLearning.pdf); [Multimodal Machine Learning: A Survey and Taxonomy](https://arxiv.org/abs/1705.09406)
 
 ### Latent Space
+
 - **Category:** Data & representations
 - **What people say:** A model's hidden representation space.
 - **What it actually means:** A learned representation space whose coordinates encode factors useful to a model. It may be lower-dimensional than the input, but compression is not required for every latent representation.
@@ -1080,6 +1201,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Embedding, VAE (Variational Autoencoder), Feature
 
 ### Learning Rate
+
 - **Category:** Math & training
 - **What people say:** How large each optimization step is.
 - **What it actually means:** A scale factor used by an optimizer to control parameter-update magnitude. Values that are too large can destabilize training; values that are too small can make useful progress impractically slow.
@@ -1087,6 +1209,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Optimizer, Gradient Descent, Batch Size
 
 ### Learning Rate Schedule
+
 - **Category:** Math & training
 - **What it actually means:** A policy that changes the optimizer's learning rate as training progresses according to steps, epochs, metrics, or a predefined curve.
 - **Why it matters:** Different training stages can benefit from different update scales, so one constant rate may be unstable early or wasteful late.
@@ -1096,6 +1219,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [SGDR](https://arxiv.org/abs/1608.03983); [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 
 ### Least Privilege
+
 - **Category:** Evaluation & safety
 - **What it actually means:** Giving a model, agent, tool, or user only the permissions required for the current task, for only as long as those permissions are needed.
 - **Why it matters:** Models can make mistakes or follow malicious instructions. Narrow permissions reduce the damage any one failure can cause.
@@ -1104,6 +1228,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Sandbox, Approval Gate, Prompt Injection, Tool Contract
 
 ### LLM (Large Language Model)
+
 - **Category:** Models & inference
 - **What people say:** The brain of an AI application.
 - **What it actually means:** A language model with enough capacity and broad training to perform many language tasks through prompting or adaptation. Most current LLMs use transformer architectures and sequence-prediction objectives, but size thresholds, data sources, and training recipes vary.
@@ -1111,6 +1236,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Transformer, Autoregressive, Agent Harness
 
 ### LLM-as-a-Judge
+
 - **Category:** Evaluation & safety
 - **What it actually means:** Using a language model to score, compare, classify, or critique another system's output against a rubric.
 - **Why it matters:** It can scale evaluation of qualities that are difficult to express as exact-match tests, such as clarity or instruction adherence.
@@ -1120,6 +1246,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Evaluation (Eval), Eval Set, Verification Gate, Precision & Recall
 
 ### Load Shedding
+
 - **Category:** Reliability & operations
 - **What it actually means:** Deliberately rejecting, dropping, or cancelling selected work at one or more overload boundaries when demand exceeds the capacity available to produce useful results.
 - **Why it matters:** Continuing to accept every request during overload can increase queueing until nearly all requests miss their deadlines and recovery becomes harder.
@@ -1129,6 +1256,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Handling Overload](https://sre.google/sre-book/handling-overload/)
 
 ### Logits
+
 - **Category:** Models & inference
 - **What it actually means:** The model's unnormalized numeric scores for candidate outcomes before a normalization function or decoding rule converts them into selections.
 - **Why it matters:** Temperature, softmax, top-k, and top-p operate on or derive from logits, so logits connect model computation to generated tokens.
@@ -1138,6 +1266,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 
 ### LoRA (Low-Rank Adaptation)
+
 - **Category:** Math & training
 - **What people say:** Parameter-efficient fine-tuning.
 - **What it actually means:** A method that keeps base weights frozen and learns low-rank update matrices for selected layers. It reduces the number of trainable parameters and can lower training memory relative to full-parameter fine-tuning.
@@ -1147,6 +1276,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Fine-tuning, QLoRA, Parameter
 
 ### Loss Function
+
 - **Category:** Math & training
 - **What people say:** A number that measures training error.
 - **What it actually means:** An objective that maps predictions and targets, sometimes with regularization terms, to a value optimization tries to reduce. The loss determines which errors training directly rewards or penalizes.
@@ -1154,6 +1284,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Cross-Entropy, Gradient, Evaluation (Eval)
 
 ### Lost in the Middle
+
 - **Category:** Prompting & context
 - **What it actually means:** A long-context failure pattern in which model performance changes with evidence position and can degrade when relevant information sits between the beginning and end.
 - **Why it matters:** Fitting evidence inside the context window does not guarantee that the model will use every position with equal reliability.
@@ -1165,6 +1296,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## M
 
 ### Maximum Marginal Relevance (MMR)
+
 - **Category:** Retrieval & generation
 - **What it actually means:** A selection rule that balances relevance to the query with novelty relative to items already selected.
 - **Why it matters:** It can reduce redundant chunks so a limited context budget covers more distinct evidence.
@@ -1174,6 +1306,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [The Use of MMR, Diversity-Based Reranking for Reordering Documents and Producing Summaries](https://www.cs.cmu.edu/~jgc/publication/MMR_DiversityBased_Reranking_SIGIR_1998.pdf)
 
 ### MCP (Model Context Protocol)
+
 - **Category:** Agents & tools
 - **What people say:** A standard way for AI applications to connect to tools and context.
 - **What it actually means:** An open JSON-RPC protocol for a host to connect to servers that expose tools, resources, prompts, and extensions through defined request, result, discovery, and transport contracts. In revision 2026-07-28, every request carries its protocol version and client capabilities instead of relying on an initialization handshake or protocol session.
@@ -1183,6 +1316,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Stateless MCP, Multi Round-Trip Request (MRTR), Function Calling, Tool Contract, Least Privilege
 
 ### Membership Inference
+
 - **Category:** Security & governance
 - **What it actually means:** An attack that estimates whether a particular record or example was included in a model's training data by observing model outputs or other accessible signals.
 - **Why it matters:** Even when the model does not reproduce a record verbatim, distinguishable behavior can reveal information about participation in a sensitive dataset.
@@ -1193,6 +1327,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Membership Inference Attacks Against Machine Learning Models](https://doi.org/10.1109/SP.2017.41)
 
 ### Mixed Precision
+
 - **Category:** Math & training
 - **What people say:** Using lower-precision arithmetic for speed and memory savings.
 - **What it actually means:** A numerical strategy that uses different data types for different operations, often lower precision for many matrix operations and higher precision for values that need more range or stability.
@@ -1200,6 +1335,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Tensor, CUDA, NaN (Not a Number), Quantization
 
 ### Modality
+
 - **Category:** Multimodal systems
 - **What it actually means:** A form of information with its own structure and acquisition process, such as text, image, audio, video, depth, or sensor measurements.
 - **Why it matters:** Different modalities have different sampling rates, noise, spatial or temporal structure, and missing-data behavior, so one preprocessing assumption rarely fits all of them.
@@ -1210,6 +1346,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [ImageBind: One Embedding Space To Bind Them All](https://arxiv.org/abs/2305.05665); [Multimodal Machine Learning: A Survey and Taxonomy](https://arxiv.org/abs/1705.09406)
 
 ### Modality Alignment
+
 - **Category:** Multimodal systems
 - **What it actually means:** Learning or establishing correspondences between representations from different modalities so semantically or temporally related items can be matched.
 - **Why it matters:** Fusion and cross-modal retrieval fail when the system cannot connect the same event, object, or concept across differently structured inputs.
@@ -1220,6 +1357,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Learning Transferable Visual Models From Natural Language Supervision](https://proceedings.mlr.press/v139/radford21a.html)
 
 ### Model Card
+
 - **Category:** Evaluation & safety
 - **What it actually means:** A structured report describing a model's intended uses, evaluation conditions, performance characteristics, limitations, and relevant ethical or safety considerations.
 - **Why it matters:** It gives downstream builders context for deciding whether reported evidence applies to their users and deployment conditions.
@@ -1229,6 +1367,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Model Cards for Model Reporting](https://dl.acm.org/doi/10.1145/3287560.3287596)
 
 ### Model Router
+
 - **Category:** AI-native development
 - **What it actually means:** A component that selects a model or provider for a request using requirements such as capability, latency, cost, context size, policy, and current availability.
 - **Why it matters:** Different tasks and failure conditions justify different models, and routing can improve outcome quality without sending every request to the largest option.
@@ -1237,6 +1376,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Evaluation (Eval), Circuit Breaker, Rate Limit, Cost per Successful Task
 
 ### Model Serving
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** The runtime and API layer that loads versioned model artifacts, accepts inference requests, schedules execution, manages resources, and returns results under an operational contract.
 - **Why it matters:** A capable model can still produce an unreliable product when queueing, batching, placement, versioning, cancellation, and response boundaries are not engineered explicitly.
@@ -1247,6 +1387,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Clipper](https://arxiv.org/abs/1612.03079)
 
 ### MoE (Mixture of Experts)
+
 - **Category:** Models & inference
 - **What people say:** A large model that activates only part of its parameters for each token.
 - **What it actually means:** An architecture with multiple expert subnetworks and a learned router that selects a subset for each input unit, often each token. Sparse activation can increase total parameter capacity without using every expert on every forward pass.
@@ -1256,6 +1397,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Transformer, Model Router, Parameter
 
 ### Multimodal Fusion
+
 - **Category:** Multimodal systems
 - **What it actually means:** Combining evidence or learned representations from more than one modality to produce a joint representation, prediction, or generated output.
 - **Why it matters:** Modalities can supply complementary evidence, but naïve combination can amplify noise, timing errors, or one dominant stream.
@@ -1266,6 +1408,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Multimodal Deep Learning](https://ai.stanford.edu/~ang/papers/icml11-MultimodalDeepLearning.pdf); [Multimodal Machine Learning: A Survey and Taxonomy](https://arxiv.org/abs/1705.09406)
 
 ### Multimodal Model
+
 - **Category:** Multimodal systems
 - **What it actually means:** A model that learns from, relates, or generates more than one modality through representation, alignment, fusion, translation, or coordinated prediction.
 - **Why it matters:** Multimodal capability depends on how modalities interact, not simply on accepting several input types, and failures can occur at each representation boundary.
@@ -1276,6 +1419,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198); [Multimodal Machine Learning: A Survey and Taxonomy](https://arxiv.org/abs/1705.09406)
 
 ### Multi Round-Trip Request (MRTR)
+
 - **Category:** Agents & tools
 - **Aliases:** MRTR
 - **What it actually means:** An MCP request pattern in which an operation returns `resultType: input_required` with one or more `inputRequests`, then the client retries the original method with `inputResponses` and the exact returned `requestState`.
@@ -1289,6 +1433,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## N
 
 ### NaN (Not a Number)
+
 - **Category:** Math & training
 - **What people say:** A sign that numerical computation failed.
 - **What it actually means:** A floating-point value representing an undefined or unrepresentable numerical result. In training, NaNs can come from invalid operations, overflow, unstable normalization, excessive updates, or earlier corrupted values.
@@ -1296,6 +1441,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Mixed Precision, Learning Rate, Gradient
 
 ### Normalization
+
 - **Category:** Math & training
 - **What people say:** Scaling data to a standard range.
 - **What it actually means:** A family of transformations that rescale or recenter inputs, activations, or features using defined statistics. Batch normalization and layer normalization use different axes and behave differently across training and inference.
@@ -1303,6 +1449,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Tensor, Activation Function, Mixed Precision
 
 ### Nucleus Sampling (Top-p)
+
 - **Category:** Models & inference
 - **Aliases:** Top-p sampling
 - **What it actually means:** A decoding method that samples from the smallest set of next-token candidates whose cumulative probability reaches a chosen threshold.
@@ -1315,6 +1462,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## O
 
 ### Observability
+
 - **Category:** AI-native development
 - **What it actually means:** The ability to understand an AI system's behavior from recorded inputs, outputs, state transitions, tool calls, timings, costs, errors, and evaluation signals.
 - **Why it matters:** AI failures often span model, retrieval, tools, and orchestration. You need correlated evidence to locate the failing boundary.
@@ -1324,6 +1472,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Trace, Evaluation (Eval), Agent State, Time to First Token (TTFT)
 
 ### Optimizer
+
 - **Category:** Math & training
 - **What people say:** The algorithm that updates weights.
 - **What it actually means:** An algorithm that transforms gradients into parameter updates. Plain stochastic gradient descent is a simple baseline; momentum, Adam, and other optimizers change the update using history or adaptive scaling. Each choice has different memory, stability, and tuning behavior.
@@ -1331,6 +1480,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Adam (Optimizer), AdamW, Gradient, Learning Rate
 
 ### Orchestration
+
 - **Category:** Agents & tools
 - **What it actually means:** The control logic that sequences, branches, delegates, retries, pauses, resumes, and terminates work across model and tool steps.
 - **Why it matters:** Reliable agent behavior depends on explicit workflow decisions outside the model, especially when tasks have dependencies or consequential side effects.
@@ -1340,6 +1490,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents)
 
 ### Overfitting
+
 - **Category:** Math & training
 - **What people say:** The model memorized the training data.
 - **What it actually means:** A generalization gap in which performance on training data is substantially better than performance on representative unseen data. Memorization can contribute, but the operational symptom is poor generalization.
@@ -1349,6 +1500,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## P
 
 ### Paged KV Cache
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** A KV-cache memory manager that stores attention state in fixed-size blocks and maps logical sequence positions to physical blocks instead of requiring one contiguous allocation per sequence.
 - **Why it matters:** Variable sequence lengths create fragmentation and unpredictable growth, so block-based allocation can improve usable memory and enable flexible sharing.
@@ -1359,6 +1511,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
 
 ### Parameter
+
 - **Category:** Models & inference
 - **What people say:** A number used to describe model size.
 - **What it actually means:** A value learned during training, commonly a weight, bias, embedding element, or normalization parameter. Parameter count is one measure of model capacity, but it does not directly determine quality, memory, or serving cost.
@@ -1366,6 +1519,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Weight, MoE (Mixture of Experts), Quantization
 
 ### Pass@k
+
 - **Category:** Evaluation & safety
 - **What it actually means:** Across a task set, the fraction of tasks for which at least one of k sampled candidates passes a defined correctness test.
 - **Why it matters:** It measures the value of sampling several attempts for tasks such as code generation where an automatic verifier can check each candidate.
@@ -1375,6 +1529,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)
 
 ### Patch
+
 - **Category:** AI-native development
 - **What it actually means:** A reviewable representation of changes to one or more files, usually expressed as additions and deletions against a known base revision.
 - **Why it matters:** A patch gives people and agents a narrow artifact to inspect, test, apply, or reject without accepting an entire working directory.
@@ -1384,6 +1539,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Coding Agent, Worktree, Scope Contract, Regression Test
 
 ### Patch Embedding
+
 - **Category:** Multimodal systems
 - **What it actually means:** A learned projection that converts an image patch into a fixed-width vector used as one element of a transformer input sequence.
 - **Why it matters:** It creates the interface between a spatial image grid and a sequence model, with patch size controlling token count and retained local detail.
@@ -1394,6 +1550,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [An Image is Worth 16x16 Words](https://arxiv.org/abs/2010.11929)
 
 ### Perplexity
+
 - **Category:** Models & inference
 - **What people say:** How surprised a language model is by a dataset.
 - **What it actually means:** The exponentiated average negative log-likelihood under a stated tokenization and logarithm convention. Lower values mean the model assigned higher probability to the evaluated sequence.
@@ -1401,6 +1558,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Cross-Entropy, Token, Evaluation (Eval)
 
 ### Pipeline Parallelism
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** Partitioning sequential groups of model layers across devices and moving microbatches or requests through those stages as a pipeline.
 - **Why it matters:** It lets models exceed one device's memory, but stage imbalance, pipeline bubbles, activation transfers, and failure coordination affect usable performance.
@@ -1411,6 +1569,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [GPipe](https://arxiv.org/abs/1811.06965)
 
 ### Planning
+
 - **Category:** Agents & tools
 - **What it actually means:** Constructing, selecting, or revising a sequence of actions and dependencies intended to move from the current state to a goal.
 - **Why it matters:** Explicit plans make assumptions and ordering visible before an agent commits to expensive or irreversible actions.
@@ -1420,6 +1579,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [LLM+P](https://arxiv.org/abs/2304.11477)
 
 ### Postmortem
+
 - **Category:** Reliability & operations
 - **What it actually means:** A durable incident record that explains impact, detection, response, contributing conditions, recovery, and owned follow-up actions without assigning blame as a substitute for analysis.
 - **Why it matters:** A resolved outage still has value as evidence. Capturing system conditions and decisions turns one event into improvements that reduce recurrence and response time.
@@ -1429,6 +1589,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Postmortem Culture](https://sre.google/sre-book/postmortem-culture/)
 
 ### Precision & Recall
+
 - **Category:** Evaluation & safety
 - **What people say:** Two metrics for classification or retrieval quality.
 - **What it actually means:** Precision asks how many flagged items were correct; recall asks how many relevant items were found. When you change the decision threshold for one fixed scoring model, improving recall often lowers precision and vice versa. A better model can improve both. F1 is their harmonic mean.
@@ -1436,6 +1597,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Eval Set, Semantic Search, Guardrails
 
 ### Prefill
+
 - **Category:** Infrastructure & serving
 - **Aliases:** Prefill Phase
 - **What it actually means:** The initial inference stage that processes all supplied input tokens to produce their representations and the attention state required for subsequent autoregressive generation.
@@ -1447,6 +1609,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Sarathi-Serve](https://www.usenix.org/system/files/osdi24-agrawal.pdf); [DistServe](https://arxiv.org/abs/2401.09670)
 
 ### Prefix Caching
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** Reusing KV-cache blocks produced for an identical eligible token prefix across requests so the serving runtime can skip repeated prefix computation.
 - **Why it matters:** Shared system instructions, templates, or documents can consume substantial prefill work, but reuse only helps when token sequences and cache eligibility match.
@@ -1457,6 +1620,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [SGLang](https://arxiv.org/abs/2312.07104)
 
 ### Progressive Disclosure
+
 - **Category:** AI-native development
 - **What it actually means:** Supplying a person or model with the minimum useful context first, then revealing deeper detail when the task or evidence requires it.
 - **Why it matters:** It limits context noise and cost while keeping authoritative detail available on demand.
@@ -1466,6 +1630,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Context Engineering, Repository Map, Token Budget, Handoff
 
 ### Prompt Cache
+
 - **Category:** Prompting & context
 - **What it actually means:** Reuse of provider-side or application-side computation for an identical or eligible prompt prefix so repeated inference avoids some preprocessing work.
 - **Why it matters:** Stable instructions and large shared documents can become cheaper or faster across repeated calls when the provider's cache contract is satisfied.
@@ -1475,6 +1640,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Semantic Cache, Prefix Caching, KV Cache, Time to First Token (TTFT)
 
 ### Prompt Engineering
+
 - **Category:** Prompting & context
 - **What people say:** Wording instructions so a model follows the task.
 - **What it actually means:** Designing model-facing instructions, examples, constraints, and output requirements to improve behavior on a defined task.
@@ -1483,6 +1649,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Context Engineering, Few-Shot, System Prompt, Structured Output
 
 ### Prompt Injection
+
 - **Category:** Evaluation & safety
 - **What people say:** An adversarial instruction that redirects a model.
 - **What it actually means:** An attack or failure mode in which untrusted content influences a model to disregard intended instructions, expose data, misuse tools, or take actions outside the user's goal. The content can arrive directly from a user or indirectly through retrieved pages, files, messages, or tool output.
@@ -1494,6 +1661,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Least Privilege, Sandbox, Approval Gate, Tool Contract
 
 ### Prompt Sensitivity
+
 - **Category:** Prompting & context
 - **What it actually means:** Variation in model output or measured performance caused by changes to prompt wording, order, formatting, or examples that preserve the intended task.
 - **Why it matters:** A system that succeeds under one convenient phrasing may be unreliable for real users or misleading in evaluation.
@@ -1503,6 +1671,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [ProSA](https://aclanthology.org/2024.findings-emnlp.108/)
 
 ### Provenance Attestation
+
 - **Category:** Security & governance
 - **What it actually means:** Authenticated, machine-readable metadata that binds an artifact to claims about how, where, when, and from which inputs it was produced.
 - **Why it matters:** It lets automated policy and reviewers verify supply-chain claims instead of trusting an unsigned build note.
@@ -1512,6 +1681,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [SLSA Software Attestations](https://slsa.dev/spec/v1.2/attestation-model)
 
 ### Purpose Limitation
+
 - **Category:** Security & governance
 - **What it actually means:** For personal data, collecting and using it only for specified, explicit purposes unless a new use has an appropriate compatible or authorized basis.
 - **Why it matters:** Data that was acceptable for one workflow can create privacy and governance risk when silently reused for model training, evaluation, personalization, or unrelated analytics.
@@ -1523,6 +1693,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## Q
 
 ### QLoRA
+
 - **Category:** Math & training
 - **What people say:** LoRA with a quantized base model.
 - **What it actually means:** A parameter-efficient fine-tuning method that keeps a pretrained base model frozen in a low-bit quantized representation while training LoRA adapters with higher-precision computation where needed.
@@ -1533,6 +1704,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** LoRA (Low-Rank Adaptation), Quantization, Fine-tuning
 
 ### Quantization
+
 - **Category:** Models & inference
 - **What people say:** Storing or computing model values with fewer bits.
 - **What it actually means:** Representing weights, activations, or caches with lower-precision formats to reduce memory, bandwidth, or compute cost. Methods differ in calibration, granularity, data type, and whether conversion happens before, during, or after training.
@@ -1542,6 +1714,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## R
 
 ### RAG (Retrieval-Augmented Generation)
+
 - **Category:** Retrieval & generation
 - **What people say:** A model answering with retrieved knowledge.
 - **What it actually means:** A system pattern that retrieves evidence relevant to a request and supplies selected content to a generative model before it answers or acts. Retrieval can use lexical, vector, structured, or hybrid methods.
@@ -1552,6 +1725,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Grounding, Hybrid Retrieval, Reranker, Hallucination
 
 ### Rate Limit
+
 - **Category:** AI-native development
 - **What it actually means:** A policy that caps requests, tokens, concurrent work, or another resource within a defined time or capacity window.
 - **Why it matters:** It protects providers and your own system from overload, uncontrolled spend, and unfair resource use.
@@ -1560,6 +1734,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Backpressure, Retry with Backoff, Circuit Breaker
 
 ### ReAct
+
 - **Category:** Agents & tools
 - **What it actually means:** An agent pattern that interleaves task reasoning, a concrete action, and an observation returned by the environment before deciding the next step.
 - **Why it matters:** Environment feedback can correct assumptions and ground later decisions instead of forcing the model to complete the entire task from internal generation alone.
@@ -1569,6 +1744,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [ReAct](https://arxiv.org/abs/2210.03629)
 
 ### Readiness Probe
+
 - **Category:** Reliability & operations
 - **What it actually means:** A diagnostic that tells the traffic-routing layer whether a service instance is currently able to accept requests.
 - **Why it matters:** A process can be alive while its model is unloaded, dependencies are unavailable, or warmup is incomplete, so sending traffic too early creates avoidable failures.
@@ -1579,6 +1755,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Kubernetes Liveness, Readiness, and Startup Probes](https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/)
 
 ### Recall@K
+
 - **Category:** Retrieval & generation
 - **What it actually means:** For one query, Recall@K is `|relevant items intersecting the top k| / |relevant items|`. A dataset score aggregates those per-query values under a stated rule.
 - **Why it matters:** It tells you whether a retrieval stage supplies downstream generation or reranking with enough relevant candidates.
@@ -1588,6 +1765,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [BEIR](https://openreview.net/forum?id=wCu6T5xFjeJ)
 
 ### Reciprocal Rank Fusion (RRF)
+
 - **Category:** Retrieval & generation
 - **What it actually means:** A rank-fusion method that combines several result lists by summing contributions that decrease with each item's rank in each list.
 - **Why it matters:** It can merge lexical, dense, or multi-query rankings without assuming their raw scores share the same scale.
@@ -1597,6 +1775,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods](https://dl.acm.org/doi/10.1145/1571941.1572114)
 
 ### Red Teaming
+
 - **Category:** Security & governance
 - **What it actually means:** A structured adversarial testing process in which authorized testers seek failures using documented objectives, threat assumptions, cases, and evidence.
 - **Why it matters:** Ordinary quality tests rarely explore how a system behaves under manipulation, misuse, conflicting goals, or determined attempts to bypass controls.
@@ -1606,6 +1785,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Red Teaming Language Models with Language Models](https://arxiv.org/abs/2202.03286)
 
 ### Regression Test
+
 - **Category:** AI-native development
 - **What it actually means:** A repeatable check that protects behavior known to work, especially after code, prompt, model, retrieval, or tool changes.
 - **Why it matters:** AI system changes can improve average quality while silently reintroducing a previously fixed failure.
@@ -1615,12 +1795,14 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Eval Set, Verification Gate, Patch, Evaluation (Eval)
 
 ### ReLU
+
 - **Category:** Math & training
 - **What people say:** A simple activation function.
 - **What it actually means:** Rectified Linear Unit, defined as `f(x) = max(0, x)`. It is inexpensive and has a non-saturating positive branch, though zero gradients on negative inputs can create inactive units.
 - **Related terms:** Activation Function, Gradient, CNN (Convolutional Neural Network)
 
 ### Repository Instructions
+
 - **Category:** AI-native development
 - **What it actually means:** Version-controlled guidance that tells coding agents how a repository is organized, which commands and conventions apply, what boundaries to respect, and how to verify work.
 - **Why it matters:** It turns repeated tribal knowledge into local context that travels with the code and can vary by subproject.
@@ -1630,6 +1812,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [AGENTS.md specification](https://agents.md/)
 
 ### Repository Map
+
 - **Category:** AI-native development
 - **What it actually means:** A compact, maintained description of a repository's important directories, ownership boundaries, entry points, build commands, tests, generated files, and local instructions.
 - **Why it matters:** It helps a coding agent find the right evidence before loading large files or editing the wrong subsystem.
@@ -1639,6 +1822,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Coding Agent, Progressive Disclosure, Scope Contract, Context Engineering
 
 ### Reproducible Build
+
 - **Category:** AI-native development
 - **What it actually means:** A build whose declared source, environment, and instructions can be independently rerun to produce bit-for-bit identical specified artifacts.
 - **Why it matters:** It makes an artifact verifiable beyond the machine or agent that originally produced it and exposes hidden build inputs.
@@ -1648,6 +1832,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Reproducible Builds definition](https://reproducible-builds.org/docs/definition/)
 
 ### Reranker
+
 - **Category:** Retrieval & generation
 - **What it actually means:** A second-stage model or scoring function that reorders a small candidate set using a richer comparison between the query and each candidate.
 - **Why it matters:** Fast first-stage retrieval maximizes candidate coverage, while reranking can improve which evidence reaches the limited context window.
@@ -1656,6 +1841,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Hybrid Retrieval, Semantic Search, RAG (Retrieval-Augmented Generation)
 
 ### Retry Budget
+
 - **Category:** Reliability & operations
 - **What it actually means:** A bound on retry traffic, usually expressed relative to original requests or over a time window, that prevents retries from consuming unbounded capacity.
 - **Why it matters:** When a dependency slows or fails, unrestricted retries multiply load exactly when the system has the least spare capacity.
@@ -1665,6 +1851,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Addressing Cascading Failures](https://sre.google/sre-book/addressing-cascading-failures/)
 
 ### Retry with Backoff
+
 - **Category:** AI-native development
 - **What it actually means:** Repeating a failed transient operation after progressively longer delays, usually with randomized jitter and a strict retry limit.
 - **Why it matters:** Immediate synchronized retries can worsen an outage, consume rate limits, and duplicate side effects.
@@ -1673,6 +1860,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Idempotency, Rate Limit, Circuit Breaker, Backpressure
 
 ### Reviewer Agent
+
 - **Category:** AI-native development
 - **What it actually means:** An agent assigned to inspect another agent's artifact or decision against explicit criteria and return findings or a verdict.
 - **Why it matters:** Separation of roles can catch omissions, but it only helps when the reviewer receives independent evidence and a concrete rubric.
@@ -1682,6 +1870,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Coding Agent, Verification Gate, Scope Contract, LLM-as-a-Judge
 
 ### RLHF (Reinforcement Learning from Human Feedback)
+
 - **Category:** Math & training
 - **What people say:** Training a model from human preferences.
 - **What it actually means:** A family of pipelines that uses human feedback to learn a reward or preference signal and then optimizes a model policy against that signal. Implementations vary and need not all use the same reinforcement-learning algorithm.
@@ -1691,6 +1880,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** DPO (Direct Preference Optimization), SFT (Supervised Fine-Tuning), Alignment
 
 ### Rollback
+
 - **Category:** Reliability & operations
 - **What it actually means:** Restoring a previously known deployment or configuration when the current release violates operational, quality, or safety criteria.
 - **Why it matters:** Agent and model changes can fail in production despite pre-deployment evaluation, so recovery must be designed before rollout.
@@ -1700,6 +1890,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Kubernetes Deployments: Rolling Back](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment)
 
 ### ROUGE
+
 - **Category:** Evaluation & safety
 - **What people say:** A reference-overlap metric often used for summaries.
 - **What it actually means:** A family of metrics that compares generated text with reference text using units such as n-gram overlap or longest common subsequence.
@@ -1709,6 +1900,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## S
 
 ### Sandbox
+
 - **Category:** Agents & tools
 - **What it actually means:** An isolated execution environment that restricts an agent's access to files, processes, network destinations, credentials, and host resources.
 - **Why it matters:** Generated code and tool calls can be wrong or malicious. Isolation limits their reach and makes disposable verification practical.
@@ -1718,6 +1910,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Least Privilege, Approval Gate, Coding Agent, Guardrails
 
 ### Saturation
+
 - **Category:** Reliability & operations
 - **What it actually means:** The degree to which a constrained resource or service has exhausted its capacity, including queued work that cannot begin promptly.
 - **Why it matters:** Utilization alone can appear acceptable while memory, accelerator slots, queue depth, or a downstream quota is already limiting useful throughput.
@@ -1727,6 +1920,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
 
 ### Scope Contract
+
 - **Category:** AI-native development
 - **What it actually means:** A concrete agreement that defines a task's goal, allowed and forbidden surfaces, expected artifacts, verification requirements, and stopping conditions.
 - **Why it matters:** It prevents an agent from turning a narrow fix into an unreviewable refactor or from claiming completion without evidence.
@@ -1736,6 +1930,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Coding Agent, Patch, Verification Gate, Handoff
 
 ### Self-Attention
+
 - **Category:** Models & inference
 - **What people say:** Tokens deciding which other tokens matter.
 - **What it actually means:** Attention in which queries, keys, and values are derived from the same sequence representation. Scaled similarity scores are normalized and used to combine values, subject to causal, padding, local, or other masks.
@@ -1745,6 +1940,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Attention, Transformer, Context Window
 
 ### Semantic Cache
+
 - **Category:** AI-native development
 - **What it actually means:** A cache that reuses a previous result when a new request is judged sufficiently similar under a chosen representation and threshold.
 - **Why it matters:** It can reduce latency and cost for repeated intents, but an incorrect match can return stale or user-inappropriate output.
@@ -1753,6 +1949,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Prompt Cache, Embedding, Cost per Successful Task, Grounding
 
 ### Semantic Search
+
 - **Category:** Retrieval & generation
 - **What people say:** Search by meaning instead of exact words.
 - **What it actually means:** Retrieval that represents a query and candidates in an embedding space and ranks candidates using a vector-similarity function.
@@ -1760,6 +1957,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Embedding, Hybrid Retrieval, Vector Database, Reranker
 
 ### Separation of Duties
+
 - **Category:** Security & governance
 - **What it actually means:** Dividing conflicting responsibilities or authority across independent roles so one principal cannot complete a high-risk action without another authorized decision.
 - **Why it matters:** A compromised account or mistaken agent should not be able to propose, approve, execute, and conceal the same consequential change.
@@ -1769,6 +1967,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
 
 ### Service Level Indicator (SLI)
+
 - **Category:** Reliability & operations
 - **What it actually means:** A quantitative measure of service behavior at a defined user-relevant boundary, such as successful request ratio or latency below a threshold.
 - **Why it matters:** Reliability discussions become actionable only when the observed behavior, eligible events, and measurement point are explicit.
@@ -1778,6 +1977,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Service Level Objectives](https://sre.google/sre-book/service-level-objectives/)
 
 ### Service Level Objective (SLO)
+
 - **Category:** Reliability & operations
 - **What it actually means:** A target range or threshold for a service-level indicator over a stated population and measurement window.
 - **Why it matters:** It translates an expected user outcome into an operating boundary for monitoring, capacity, release risk, and incident decisions.
@@ -1788,6 +1988,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Google SRE: Service Level Objectives](https://sre.google/sre-book/service-level-objectives/)
 
 ### SFT (Supervised Fine-Tuning)
+
 - **Category:** Math & training
 - **What people say:** Training on example inputs and desired outputs.
 - **What it actually means:** Fine-tuning a pretrained model on paired inputs and desired responses so it learns the demonstrated behavior under the training distribution.
@@ -1795,6 +1996,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Fine-tuning, DPO (Direct Preference Optimization), RLHF (Reinforcement Learning from Human Feedback)
 
 ### Shadow Traffic
+
 - **Category:** Reliability & operations
 - **What it actually means:** A copy of live request traffic sent to a candidate system for observation while the candidate response remains outside the primary user response path. Because the copied request still executes, its side effects must be isolated.
 - **Why it matters:** It exposes the candidate to real input shapes and load while limiting user impact, which can reveal failures absent from synthetic tests.
@@ -1805,6 +2007,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Istio Traffic Mirroring](https://istio.io/latest/docs/tasks/traffic-management/mirroring/)
 
 ### Shared Embedding Space
+
 - **Category:** Multimodal systems
 - **What it actually means:** A common vector space in which representations from different modalities can be compared with the same similarity function.
 - **Why it matters:** It enables cross-modal retrieval and matching, such as finding images from text, without requiring both items to share a raw representation.
@@ -1815,6 +2018,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Learning Transferable Visual Models From Natural Language Supervision](https://proceedings.mlr.press/v139/radford21a.html)
 
 ### Skill Bundle
+
 - **Category:** Agents & tools
 - **What it actually means:** The complete installable skill directory, including `SKILL.md` and every reference, script, asset, fixture, or companion file required by the workflow.
 - **Why it matters:** Copying only the entry file can leave valid-looking instructions that point to missing resources or lose the deterministic code the workflow depends on.
@@ -1825,6 +2029,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Agent Skills specification](https://agentskills.io/specification)
 
 ### Skill Catalog
+
 - **Category:** Agents & tools
 - **What it actually means:** The compact model-visible inventory of eligible skills, usually containing routing metadata such as name, description, and an internal source identifier rather than every skill body.
 - **Why it matters:** A catalog lets an agent discover relevant procedures without loading every installed package into the working context.
@@ -1835,6 +2040,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Agent Skills specification](https://agentskills.io/specification)
 
 ### Skill Discovery
+
 - **Category:** Agents & tools
 - **What it actually means:** A runtime pipeline that searches configured roots, identifies candidate skill directories, validates their package contract, attaches scope and provenance, resolves collisions, and publishes eligible catalog entries.
 - **Why it matters:** Deterministic discovery makes missing, malformed, shadowed, and unsafe packages diagnosable before model routing begins.
@@ -1845,6 +2051,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Agent Skills client implementation guide](https://agentskills.io/client-implementation/adding-skills-support)
 
 ### Skill Invocation
+
 - **Category:** Agents & tools
 - **What it actually means:** The runtime-mediated process in which an eligible human, model, application, or other skill selects a skill and causes its instructions to enter the working context.
 - **Why it matters:** Explicit user access, implicit model routing, activation, argument binding, tool permission, and execution are separate decisions with different failure modes.
@@ -1855,6 +2062,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Evaluating Agent Skills](https://agentskills.io/skill-creation/evaluating-skills)
 
 ### Softmax
+
 - **Category:** Math & training
 - **What people say:** A function that turns logits into normalized positive values.
 - **What it actually means:** A function defined by `softmax(x_i) = exp(x_i) / sum(exp(x_j))`, implemented with numerical stabilization. Its outputs are positive and sum to one, so they can parameterize a categorical distribution.
@@ -1862,6 +2070,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Temperature, Cross-Entropy, Attention
 
 ### Software Bill of Materials (SBOM)
+
 - **Category:** Security & governance
 - **Aliases:** SBOM
 - **What it actually means:** A structured inventory of software components and relationships associated with a product or artifact, often including versions, suppliers, licenses, and identifiers.
@@ -1872,6 +2081,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [SPDX 3.0.1 specification](https://spdx.github.io/spdx-spec/v3.0/)
 
 ### Speculative Decoding
+
 - **Category:** Models & inference
 - **What it actually means:** An inference method in which a cheaper draft process proposes several tokens and the target model scores those draft positions in parallel. In exact sampling variants, an acceptance and correction rule preserves the target model's output distribution.
 - **Why it matters:** It can reduce serial target-model decoding work when drafts are accepted, without requiring a change to the target model's trained weights.
@@ -1881,6 +2091,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Fast Inference from Transformers via Speculative Decoding](https://proceedings.mlr.press/v202/leviathan23a.html)
 
 ### Stateless MCP
+
 - **Category:** Agents & tools
 - **What it actually means:** The MCP 2026-07-28 request model in which every request carries the protocol version and client capabilities in `params._meta`, while results carry an explicit `resultType`; no protocol state is keyed by an initialization handshake, connection, or `Mcp-Session-Id`.
 - **Why it matters:** Any worker can validate and process a request from its contents and authorization context, which avoids hidden connection affinity and makes horizontal routing easier to reason about.
@@ -1891,6 +2102,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [MCP 2026-07-28 key changes](https://modelcontextprotocol.io/specification/2026-07-28/changelog); [MCP Streamable HTTP](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http)
 
 ### Stochastic Gradient Descent (SGD)
+
 - **Category:** Math & training
 - **Aliases:** SGD
 - **What it actually means:** An optimizer family that updates parameters from a gradient estimated on a sampled example or minibatch rather than the complete training dataset.
@@ -1901,6 +2113,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Optimization Methods for Large-Scale Machine Learning](https://arxiv.org/abs/1606.04838); [Accurate, Large Minibatch SGD](https://arxiv.org/abs/1706.02677)
 
 ### Stop Sequence
+
 - **Category:** Models & inference
 - **What it actually means:** An application-specified token or text pattern that causes generation to stop when the decoding system encounters it.
 - **Why it matters:** Stop sequences bound output protocols and multi-part generation without waiting for the model to decide semantically that it is finished.
@@ -1910,6 +2123,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Transformers text-generation documentation](https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
 
 ### Streaming
+
 - **Category:** Models & inference
 - **What people say:** Showing output as it is generated.
 - **What it actually means:** Delivering incremental response events before the complete result is ready. A stream may contain token text, structured deltas, tool-call arguments, usage metadata, or status events depending on the API.
@@ -1919,6 +2133,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Time to First Token (TTFT), Autoregressive, Observability
 
 ### Structured Output
+
 - **Category:** Agents & tools
 - **What it actually means:** Model output constrained or validated against a machine-readable schema so application code can consume fields without parsing free-form prose.
 - **Why it matters:** It reduces format ambiguity at the model-to-software boundary and enables field-level validation and retries.
@@ -1928,6 +2143,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Function Calling, Tool Contract, Verification Gate
 
 ### Swarm
+
 - **Category:** Agents & tools
 - **What people say:** Many agents collaborating without one fixed controller.
 - **What it actually means:** A loosely coordinated multi-agent pattern in which local agent decisions and message exchange produce system-level behavior. The term is used inconsistently, so the actual topology, state ownership, and termination rules must be specified.
@@ -1935,6 +2151,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Agent, Reviewer Agent, Handoff, Agent State
 
 ### System Prompt
+
 - **Category:** Prompting & context
 - **What people say:** Developer-controlled instructions for a model interaction.
 - **What it actually means:** A provider-defined instruction message or configuration supplied by the application to establish behavior and constraints within that provider's instruction hierarchy.
@@ -1946,6 +2163,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## T
 
 ### Tail Latency
+
 - **Category:** Reliability & operations
 - **What it actually means:** The latency experienced by the slowest portion of requests, commonly summarized with a high percentile under a stated workload and time window.
 - **Why it matters:** Averages can look healthy while a meaningful group of users waits much longer because of queueing, contention, retries, or variable request cost.
@@ -1956,6 +2174,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/)
 
 ### Temperature
+
 - **Category:** Models & inference
 - **What people say:** A creativity setting.
 - **What it actually means:** A decoding parameter that rescales logits before a probability distribution is formed. Higher positive values usually flatten the distribution; lower positive values sharpen it.
@@ -1964,12 +2183,14 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Softmax, Autoregressive, Token
 
 ### Tensor
+
 - **Category:** Data & representations
 - **What people say:** A multidimensional array used for numerical computation.
 - **What it actually means:** A typed array with a shape, data type, and device placement that frameworks use to represent inputs, parameters, activations, and gradients. Automatic-differentiation metadata is framework- and operation-dependent, not an inherent property of every tensor.
 - **Related terms:** Autograd, Parameter, Mixed Precision
 
 ### Tensor Parallelism
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** Partitioning tensor operations within a model layer across devices, with collective communication combining partial results during the layer computation.
 - **Why it matters:** It lets one layer use memory and compute from several devices, but frequent communication can dominate when the interconnect or partition is unsuitable.
@@ -1980,6 +2201,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Megatron-LM](https://arxiv.org/abs/1909.08053)
 
 ### Termination Condition
+
 - **Category:** Agents & tools
 - **What it actually means:** An explicit rule that ends or pauses an agent run when it succeeds, fails, exhausts a budget, reaches a safe boundary, or requires escalation.
 - **Why it matters:** Without a termination condition, an agent can loop, repeat side effects, waste budget, or claim completion without satisfying the goal.
@@ -1989,6 +2211,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [AutoGen](https://arxiv.org/abs/2308.08155)
 
 ### Test Oracle
+
 - **Category:** AI-native development
 - **What it actually means:** The mechanism, specification, reference, invariant, or human judgment used to decide whether observed program behavior is correct.
 - **Why it matters:** Generating test inputs is not enough; automated verification requires an independent basis for classifying each result.
@@ -1998,6 +2221,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [The Oracle Problem in Software Testing](https://www.computer.org/csdl/journal/ts/2015/05/06963470/13rRUx0geBw)
 
 ### Threat Model
+
 - **Category:** Security & governance
 - **What it actually means:** A documented account of protected assets, trust boundaries, potential adversaries, assumed capabilities, attack paths, impacts, and planned controls.
 - **Why it matters:** Security controls cannot be judged without stating what they defend, against whom, and under which assumptions.
@@ -2007,6 +2231,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [NIST SP 800-154](https://csrc.nist.gov/pubs/sp/800/154/ipd); [NIST Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.600-1.pdf)
 
 ### Time per Output Token (TPOT)
+
 - **Category:** Infrastructure & serving
 - **What it actually means:** For one request with `N > 1` output tokens, the average post-first-token interval: `(t_N - t_1) / (N - 1)`. System distributions then aggregate those per-request averages.
 - **Why it matters:** Users can receive the first token quickly while the rest of the answer streams slowly, so startup latency alone does not describe generation responsiveness.
@@ -2017,6 +2242,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [DistServe](https://arxiv.org/abs/2401.09670)
 
 ### Time to First Token (TTFT)
+
 - **Category:** Models & inference
 - **Aliases:** TTFT
 - **What it actually means:** The elapsed time from submitting a generation request until the client receives the first output token or content event under a defined measurement boundary.
@@ -2026,6 +2252,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Streaming, Prompt Cache, Observability, Token Budget
 
 ### Token
+
 - **Category:** Data & representations
 - **What people say:** A word-sized piece of model input or output.
 - **What it actually means:** An integer identifier produced by a model-specific tokenizer from text, bytes, images, audio, or another input representation. A token can be a whole word, part of a word, punctuation, whitespace, a byte sequence, or a special control symbol.
@@ -2034,6 +2261,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Token Budget, Context Window, Autoregressive
 
 ### Token Budget
+
 - **Category:** Prompting & context
 - **What it actually means:** An explicit allocation of token capacity across instructions, evidence, history, tool results, reasoning or working space, and output.
 - **Why it matters:** Every included token competes for context capacity, latency, and cost. Budgeting forces you to preserve high-value evidence first.
@@ -2043,6 +2271,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Context Window, Context Engineering, Progressive Disclosure, Cost per Successful Task
 
 ### Tokenization
+
 - **Category:** Data & representations
 - **What it actually means:** Converting an input representation into the ordered token identifiers a specific model or tokenizer accepts.
 - **Why it matters:** Tokenization determines sequence length, vocabulary boundaries, cost accounting, truncation behavior, and how text or code is represented before embedding.
@@ -2052,6 +2281,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909)
 
 ### Tokens per Second (TPS)
+
 - **Category:** Infrastructure & serving
 - **Aliases:** TPS, output token throughput
 - **What it actually means:** A throughput measure reporting how many output tokens a serving system produces per unit time under a stated scope and workload.
@@ -2062,6 +2292,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Sarathi-Serve](https://www.usenix.org/system/files/osdi24-agrawal.pdf)
 
 ### Tool Contract
+
 - **Category:** Agents & tools
 - **What it actually means:** The complete agreement for a tool boundary: purpose, typed inputs, outputs, validation, permissions, side effects, errors, timeouts, idempotency, and evidence returned to the caller.
 - **Why it matters:** A schema tells a model what fields exist; a contract tells the system when the tool is safe and how failures must be handled.
@@ -2071,6 +2302,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Function Calling, Structured Output, Least Privilege, Idempotency
 
 ### Top-k Sampling
+
 - **Category:** Models & inference
 - **What it actually means:** A decoding method that restricts the next-token distribution to the k highest-scoring candidates, renormalizes their probabilities, and samples from that set.
 - **Why it matters:** It removes the long low-probability tail from sampling while keeping a fixed maximum candidate count.
@@ -2080,6 +2312,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751)
 
 ### Trace
+
 - **Category:** AI-native development
 - **What it actually means:** A correlated record of one request or task across model calls, retrieval, tools, state transitions, retries, approvals, and evaluations.
 - **Why it matters:** It lets you reconstruct where time, cost, and failure entered a multi-step workflow.
@@ -2090,6 +2323,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Observability, Agent State, Time to First Token (TTFT), Evaluation (Eval)
 
 ### Transfer Learning
+
 - **Category:** Math & training
 - **What people say:** Reusing a pretrained model for a new task.
 - **What it actually means:** Starting from representations or parameters learned on one data distribution or objective and adapting them for another. The transferable components and update strategy depend on architecture and task.
@@ -2097,6 +2331,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Fine-tuning, Feature, SFT (Supervised Fine-Tuning)
 
 ### Transformer
+
 - **Category:** Models & inference
 - **What people say:** The architecture behind many modern language models.
 - **What it actually means:** A neural-network architecture built from attention, position information, feed-forward sublayers, residual connections, and normalization. Encoder, decoder, and encoder-decoder variants use different masks and information flows.
@@ -2107,6 +2342,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Attention, Self-Attention, Encoder, Decoder
 
 ### Trust Boundary
+
 - **Category:** Security & governance
 - **What it actually means:** An interface where data, instructions, identity, or authority crosses between components or principals that operate under different trust assumptions.
 - **Why it matters:** A boundary crossing is where the system must authenticate actors, validate data, constrain permissions, and decide which claims can influence action.
@@ -2119,6 +2355,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## U
 
 ### Underfitting
+
 - **Category:** Math & training
 - **What people say:** The model cannot fit the training task well enough.
 - **What it actually means:** A model or training setup has insufficient effective capacity, optimization, features, or training signal to capture useful patterns in the training data.
@@ -2128,6 +2365,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## V
 
 ### VAE (Variational Autoencoder)
+
 - **Category:** Models & inference
 - **What people say:** A probabilistic generative autoencoder.
 - **What it actually means:** A latent-variable model trained with a reconstruction objective and a regularization term that keeps an approximate posterior close to a chosen prior. The reparameterization estimator allows gradients through stochastic latent sampling.
@@ -2136,6 +2374,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Latent Space, Encoder, Decoder, Diffusion Model
 
 ### Vector Database
+
 - **Category:** Retrieval & generation
 - **What people say:** A database optimized for vector similarity search.
 - **What it actually means:** A storage and indexing system that supports nearest-neighbor queries over vector representations, often with metadata filtering, persistence, and approximate indexes.
@@ -2143,6 +2382,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Embedding, Semantic Search, Hybrid Retrieval
 
 ### Verification Gate
+
 - **Category:** Evaluation & safety
 - **What it actually means:** A control point that blocks progress until defined evidence satisfies a correctness or quality criterion.
 - **Why it matters:** It converts a model's claim of completion into an evidence-backed decision.
@@ -2152,6 +2392,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Approval Gate, Regression Test, Scope Contract, Structured Output
 
 ### Vision-Language Model (VLM)
+
 - **Category:** Multimodal systems
 - **What it actually means:** A model that learns relationships between, or jointly processes, visual and language representations for tasks such as retrieval, description, question answering, or grounded generation.
 - **Why it matters:** VLM performance depends on the visual encoder, language component, connection mechanism, training data, and resolution policy rather than one generic capability label.
@@ -2162,6 +2403,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [CLIP](https://arxiv.org/abs/2103.00020); [Flamingo](https://arxiv.org/abs/2204.14198)
 
 ### Vision Transformer (ViT)
+
 - **Category:** Multimodal systems
 - **What it actually means:** A vision architecture that represents an image as a sequence of patch embeddings with position information and processes that sequence with transformer encoder blocks.
 - **Why it matters:** It provides a sequence-model interface for visual data, but performance and compute depend on patch size, resolution, pretraining, and inductive biases.
@@ -2172,6 +2414,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [An Image is Worth 16x16 Words](https://arxiv.org/abs/2010.11929)
 
 ### Visual Grounding
+
 - **Category:** Multimodal systems
 - **What it actually means:** Connecting a language expression to spatial evidence in an image or video, such as a region, object, mask, or tracked entity.
 - **Why it matters:** A fluent visual answer can be unsupported, while grounding makes the claimed referent inspectable and enables region-level evaluation.
@@ -2182,6 +2425,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [MDETR](https://arxiv.org/abs/2104.12763)
 
 ### Vocabulary
+
 - **Category:** Data & representations
 - **What it actually means:** The finite mapping between token identifiers and the units a tokenizer can emit, including ordinary, byte-level, and special control tokens.
 - **Why it matters:** Vocabulary design affects sequence length, multilingual coverage, code representation, embedding size, and compatibility between tokenizers and model weights.
@@ -2193,6 +2437,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## W
 
 ### Warmup
+
 - **Category:** Math & training
 - **What it actually means:** An initial training phase in which the learning rate rises from a smaller value toward the main schedule's target value.
 - **Why it matters:** Early gradients and optimizer statistics can be unstable, especially in large-batch or transformer training, so abrupt full-size updates may damage optimization.
@@ -2202,6 +2447,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Sources:** [Accurate, Large Minibatch SGD](https://arxiv.org/abs/1706.02677)
 
 ### Weight
+
 - **Category:** Math & training
 - **What people say:** A learned number inside a model.
 - **What it actually means:** A trainable coefficient in a model transformation. Weights are usually organized into tensors, and optimization adjusts them to reduce the training objective.
@@ -2209,6 +2455,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Parameter, Tensor, Optimizer
 
 ### Weight Decay
+
 - **Category:** Math & training
 - **What people say:** Regularization that shrinks weights during optimization.
 - **What it actually means:** An update rule that reduces selected parameter magnitudes over training, often by multiplying weights by a shrinkage factor separate from the gradient update.
@@ -2217,6 +2464,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** AdamW, Overfitting, Optimizer
 
 ### Worktree
+
 - **Category:** AI-native development
 - **What it actually means:** In Git, a working directory attached to a repository and branch or commit, with shared object storage but its own checked-out files and index.
 - **Why it matters:** Separate worktrees let people and agents work concurrently without constantly switching or overwriting one checkout.
@@ -2229,6 +2477,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 ## Z
 
 ### Zero-Shot
+
 - **Category:** Prompting & context
 - **What people say:** Asking for a task without examples in the current prompt.
 - **What it actually means:** Performing a task from instructions or task framing without including task-specific demonstrations in the immediate input.
@@ -2236,6 +2485,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Few-Shot, Prompt Engineering, Transfer Learning
 
 ### Zero Trust
+
 - **Category:** Security & governance
 - **What it actually means:** A security model that grants no implicit trust from network location or asset ownership and instead evaluates each access request against identity, device, resource, policy, and current context.
 - **Why it matters:** AI tools and agents span local files, cloud services, models, and external content, so a trusted internal network is too broad a basis for authority.
